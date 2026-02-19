@@ -1,11 +1,10 @@
 package com.stiwarback.stiwarback.entity;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -32,14 +31,16 @@ public class User {
     private Integer id;
 
     private String name;
+    private String email;
+    private String classroom;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Article> articles = new ArrayList<>();
+ 
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name= "user_id"), inverseJoinColumns= @JoinColumn(name= "role_id"))
-    private Set<Role> roles= new HashSet<>();
-
+    @JoinTable(
+        name = "user_role",
+        joinColumns = @JoinColumn(name= "user_id"),
+        inverseJoinColumns= @JoinColumn(name= "role_id")
+    )
+    private Set<Role> roles = new HashSet<>();
 }
-

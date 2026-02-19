@@ -6,8 +6,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class StiwarbackApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(StiwarbackApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(StiwarbackApplication.class, args);
+    }
 }
+
+
+ 
+
+
+
+
+
+
+
+
+
